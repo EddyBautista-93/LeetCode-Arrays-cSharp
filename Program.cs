@@ -4,30 +4,41 @@ namespace LeetCode_Arrays_cSharp
 {
     internal class Program
     {
-        // Max Conesecutive ones 
-        // Given a binary array nums, return the maximum number of consecutive 1's in the array.
+        //  Given an integer array nums sorted in non-decreasing
+        //  order, return an array of the squares of each number 
+        //  sorted in non-decreasing order.
 
-        public static int FindMaxConsecutiveOnes(int[] nums)
+        // Example:
+
+        // Input: nums = [-4,-1,0,3,10]
+        // Output: [0,1,9,16,100]
+        // Explanation: After squaring, the array becomes [16,1,0,9,100].
+        // After sorting, it becomes [0,1,9,16,100].
+        // Example 2:
+
+        // Input: nums = [-7,-3,2,3,11]
+        // Output: [4,9,9,49,121]
+
+        public static int[] SortedSquares(int[] nums)
         {
-            int result = 0;
-            int count = 0;
-            foreach (var num in nums)
-            {
-                if(num == 1)
-                {
-                    result = Math.Max(result, count++); // In C#, Max() is a Math class method which is used to returns the larger of the two specified numbers.
-                } else
-                {
-                    count = 0;
-                }
-            }
-            return result;
+            int n = nums.Length;
+
+            // First convert each array
+            // elements into its square
+            for (int i = 0; i < n; i++)
+                nums[i] = nums[i] * nums[i];
+
+            // Sort an array using
+            // "inbuild sort function"
+            // in Arrays class.
+            Console.WriteLine(Array.Sort(nums));
+            return null;
         }
 
         private static void Main(string[] args)
         {
-            int[] binaryArrays = { 1, 1, 0, 1, 1, 1 };
-            FindMaxConsecutiveOnes(binaryArrays);
+            int[] testArray = { -4, -1, 0, 3, 10 };
+            SortedSquares(testArray);
         }
     }
 }
