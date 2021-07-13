@@ -31,8 +31,8 @@ namespace LeetCode_Arrays_cSharp
             // Sort an array using
             // "inbuild sort function"
             // in Arrays class.
-            Console.WriteLine(Array.Sort(nums));
-            return null;
+            Array.Sort(nums);
+            return nums;
         }
 
         private static void Main(string[] args)
